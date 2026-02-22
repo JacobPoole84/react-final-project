@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap');
+
+.search-page,
+.search-page * {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.search-page {
+    min-height: 100vh;
+}
+
+.search-page a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    position: relative;
+}
+
+/* NAVBAR */
+
+.search-page .search-navbar {
+    padding: 0 50px;
+    padding-top: 25px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    min-height: 420px; 
+}
+
+.search-page .nav__row {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-page .logo {
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+.search-page .nav__links {
+    width: 100%;
+    max-width: 430px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.search-page .link__hover-effect:after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    background-color: black;
+    width: 0;
+    bottom: -3px;
+    right: 0;
+    transition: all 300ms ease;
+}
+
+.search-page .link__hover-effect:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+.search-page .contact {
+    cursor: pointer;
+    height: 48px;
+    padding: 12px 40px;
+    border: 2px solid black;
+    border-radius: 50px;
+    color: white;
+    background-color: black;
+    transition: all 350ms ease;
+}
+
+.search-page .contact:hover {
+    background-color: rgb(47, 47, 226);
+}
+
+.search-page .btn__menu {
+    display: none;
+}
+
+.search-page .icon {
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.search-page .btn__menu {
+    background-color: transparent;
+    font-size: 40px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+/* Hamburger bars */
+.search-page .hamburger {
+    width: 44px;
+    height: 36px;
+    display: inline-block;
+    position: relative;
+}
+
+.search-page .bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: white;
+    border-radius: 2px;
+    transition: transform 300ms cubic-bezier(.2,.9,.2,1), opacity 200ms ease, top 300ms cubic-bezier(.2,.9,.2,1);
+}
+
+.search-page .bar1 { top: 6px; }
+.search-page .bar2 { top: 16px; }
+.search-page .bar3 { top: 26px; }
+
+/* Active state: morph to X */
+.search-page .btn__menu.is-active .bar1 {
+    top: 16px;
+    transform: rotate(45deg);
+}
+
+.search-page .btn__menu.is-active .bar2 {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.search-page .btn__menu.is-active .bar3 {
+    top: 16px;
+    transform: rotate(-45deg);
+}
+
+.search-page .menu__backdrop {
+    position: fixed;
+    background-color: hsla(0, 0%, 100%, .97);
+    inset: 0;
+    margin-bottom: 100px;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(110%);
+    transition: all 400ms ease-in;
+}
+
+body.menu--open .search-page .menu__backdrop {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+body.menu--open .search-page .input-wrap {
+    display: none;
+}
+
+.search-page .fa-bars:active, .search-page .fa-xmark:active {
+    transform: translateY(1px);
+}
+
+/* Single rotation used when opening/closing the menu */
+.search-page .icon.spin-once {
+    animation: spin-once 420ms cubic-bezier(.2,.9,.2,1) 1;
+}
+
+@keyframes spin-once {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+body.menu--open .search-page .fa-bars {
+    display: none;
+}
+
+.search-page .menu__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-page ul {
+    list-style-type: none;
+}
+
+.search-page .menu__list {
+    padding: 32px 0;
+}
+
+.search-page .menu__link {
+    font-size: 40px;
+    color: black;
+}
+
+.search-page .menu__close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.search-page .content__wrapper {
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-page h1 {
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    text-align: center;
+    font-size: 45px;
+    max-width: 1000px;
+}
+
+.search-page .input-wrap {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    border-radius: 50px;
+    /* overflow: hidden; */
+}
+
+.search-page input {
+    width: 100%;
+    max-width: 800px;
+    height: 60px;
+    font-size: 20px;
+    padding-left: 20px;
+    border-radius: 50px;
+}
+
+.search-page .search-wrapper {
+    color: black;
+    position: absolute;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    top: 10px;
+    bottom: 0;
+    right: 0;
+    /* z-index: 10000; */
+    padding: 0 20px 0 8px;
+    font-size: 32px;
+    transition: all 200ms ease;
+}
+
+.search-page .search-wrapper:hover {
+    color: rgb(114, 117, 204);
+}
+
+
+/* background layer that covers header */
+.search-page .background-img {
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  background-image: url('https://static.vecteezy.com/system/resources/previews/001/846/151/non_2x/cryptocurrency-stock-chart-light-futuristic-banner-background-free-vector.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* put header content above background */
+.search-page header .nav__row,
+.search-page header .content__wrapper {
+  position: relative;
+  z-index: 1;
+  color: white; /* or add text-shadow for contrast */
+}
+
+/* Search */
+
+.search-page .search {
+    position: relative;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-page .progress-inline {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    /* max-width: 400px; */
+    height: 10px;
+    background: #eee;
+    border-radius: 999px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+}
+
+.search-page .progress-inline__fill {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg,#6b6bf7,#8b62d9);
+  transition: width 300ms ease;
+}
+
+.search-page .range-slider input.range {
+    -webkit-appearance: none;
+    appearance: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: transparent;
+    pointer-events: none; /* let the thumb handle pointer events only */
+    z-index: 3;
+}
+.search-page .range-slider input.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid #6b6bf7;
+    box-shadow: 0 2px 6px rgba(0,0,0,.15);
+    pointer-events: auto;
+    cursor: pointer;
+    transform: translateY(-50%); /* place thumb vertically centered in the input area */
+}
+.search-page .range-slider input.range::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid #6b6bf7;
+    box-shadow: 0 2px 6px rgba(0,0,0,.15);
+    pointer-events: auto;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.search-page .filter__wrapper {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-page .search__info {
+    font-size: 28px;
+    padding: 20px 0;
+    margin: 0;
+}
+
+.search-page .purple {
+    color: #6b6bf7;
+}
+
+.search-page .price__filter {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    min-width: 335px;
+}
+
+.search-page #filter {
+    margin-top: 10px;
+    padding: 8px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 8px;
+    width: 50%;
+    align-self: center;
+}
+
+.search-page h2 {
+    font-size: 20px;
+    text-align: center;
+}
+
+.search-page .coin__container {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.search-page .coin-info {
+    margin: 0;
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid #d7d9ef;
+    border-radius: 16px;
+    padding: 12px;
+    background: white;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.search-page .coin-info:hover,
+.search-page .coin-info:focus-visible {
+    transform: translateY(-4px);
+    border-color: #6b6bf7;
+}
+
+.search-page h3 {
+    text-align: center;
+}
+
+.search-page .uppercase {
+    text-transform: uppercase;
+}
+
+.search-page .coin-info img {
+    margin: 8px;
+    width: 50%;
+    height: 50%;
+}
+
+
+/* Smaller Sizes */
+
+@media (max-width: 750px) {
+    .search-page .btn__menu {
+        display: block;
+    }
+
+    .search-page .nav__links {
+        display: none;
+    }
+
+    .search-page .coin-info {
+        width: 45%;
+    }
+}
