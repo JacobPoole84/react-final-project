@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "./Search.css";
 import DefiLogo from "../assets/defi-decentralized-finance-for-exchange-cryptocurrency-defi-text-logo-design-finance-system-block-chain-and-walllet-blue-dark-technology-system-with-alt-coin-icon-vector.jpg";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
@@ -19,7 +19,7 @@ const Search = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  function applySort(coinList, selectedSort) {
+  const applySort = useCallback((coinList, selectedSort) => {
     const sortedCoins = [...coinList];
 
     if (selectedSort === "NAME_SORT") {
@@ -33,9 +33,9 @@ const Search = () => {
     }
 
     return sortedCoins;
-  }
+  }, []);
 
-  async function fetchAndSetCoins(normalizedTerm, selectedSort = "") {
+  const fetchAndSetCoins = useCallback(async (normalizedTerm, selectedSort = "") => {
     setLoading(true);
     setError("");
 
@@ -75,7 +75,7 @@ const Search = () => {
     } finally {
       setLoading(false);
     }
-  }
+  }, [applySort]);
 
   async function handleSearch(event) {
     event.preventDefault();
@@ -112,7 +112,7 @@ const Search = () => {
 
       fetchAndSetCoins(normalizedTerm, "");
     }
-  }, [querySearch]);
+  }, [querySearch, fetchAndSetCoins]);
 
   return (
     <div className="search-page">
@@ -131,6 +131,7 @@ const Search = () => {
             <a
               href="mailto:jacobpoole84@gmail.com"
               target="_blank"
+              rel="noreferrer"
               className="contact"
             >
               Contact
@@ -178,6 +179,7 @@ const Search = () => {
                 <a
                   href="mailto:jacobpoole84@gmail.com"
                   target="_blank"
+                  rel="noreferrer"
                   className="menu__link"
                   onClick={() => setIsMenuOpen(false)}
                 >

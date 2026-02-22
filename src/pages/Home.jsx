@@ -49,6 +49,7 @@ const Home = () => {
             <a
               href="mailto:jacobpoole84@gmail.com"
               target="_blank"
+              rel="noreferrer"
               className="contact"
             >
               Contact
@@ -97,6 +98,7 @@ const Home = () => {
                 <a
                   href="mailto:jacobpoole84@gmail.com"
                   target="_blank"
+                  rel="noreferrer"
                   className="menu__link"
                   onClick={() => setIsMenuOpen(false)}
                 >
