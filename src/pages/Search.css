@@ -101,42 +101,8 @@
     cursor: pointer;
 }
 
-/* Hamburger bars */
-.search-page .hamburger {
-    width: 44px;
-    height: 36px;
-    display: inline-block;
-    position: relative;
-}
-
-.search-page .bar {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: white;
-    border-radius: 2px;
-    transition: transform 300ms cubic-bezier(.2,.9,.2,1), opacity 200ms ease, top 300ms cubic-bezier(.2,.9,.2,1);
-}
-
-.search-page .bar1 { top: 6px; }
-.search-page .bar2 { top: 16px; }
-.search-page .bar3 { top: 26px; }
-
-/* Active state: morph to X */
-.search-page .btn__menu.is-active .bar1 {
-    top: 16px;
-    transform: rotate(45deg);
-}
-
-.search-page .btn__menu.is-active .bar2 {
-    opacity: 0;
-    transform: scaleX(0);
-}
-
-.search-page .btn__menu.is-active .bar3 {
-    top: 16px;
-    transform: rotate(-45deg);
+.search-page .btn__menu svg {
+    display: block;
 }
 
 .search-page .menu__backdrop {

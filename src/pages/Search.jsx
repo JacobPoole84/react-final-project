@@ -4,6 +4,7 @@ import DefiLogo from "../assets/defi-decentralized-finance-for-exchange-cryptocu
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { Menu } from "lucide-react";
 import axios from "axios";
 
 const Search = () => {
@@ -143,11 +144,7 @@ const Search = () => {
             aria-label="Open menu"
             aria-expanded={isMenuOpen}
           >
-            <span className="hamburger" aria-hidden="true">
-              <span className="bar bar1"></span>
-              <span className="bar bar2"></span>
-              <span className="bar bar3"></span>
-            </span>
+            <Menu size={44} strokeWidth={3.25} color="white" aria-hidden="true" />
           </button>
           <div className="menu__backdrop">
             <button

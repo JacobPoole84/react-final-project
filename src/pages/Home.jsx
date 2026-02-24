@@ -6,6 +6,7 @@ import DefiLogo from "../assets/defi-decentralized-finance-for-exchange-cryptocu
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { Menu } from "lucide-react";
 
 const Home = () => {
   const [searchDetails, setSearchDetails] = useState("");
@@ -61,11 +62,7 @@ const Home = () => {
             aria-label="Open menu"
             aria-expanded={isMenuOpen}
           >
-            <span className="hamburger" aria-hidden="true">
-              <span className="bar bar1"></span>
-              <span className="bar bar2"></span>
-              <span className="bar bar3"></span>
-            </span>
+            <Menu size={44} strokeWidth={3.25} aria-hidden="true" />
           </button>
           <div className="menu__backdrop">
             <button

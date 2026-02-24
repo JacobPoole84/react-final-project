@@ -102,42 +102,8 @@ a {
     cursor: pointer;
 }
 
-/* Hamburger bars */
-.hamburger {
-    width: 44px;
-    height: 36px;
-    display: inline-block;
-    position: relative;
-}
-
-.bar {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: black;
-    border-radius: 2px;
-    transition: transform 300ms cubic-bezier(.2,.9,.2,1), opacity 200ms ease, top 300ms cubic-bezier(.2,.9,.2,1);
-}
-
-.bar1 { top: 6px; }
-.bar2 { top: 16px; }
-.bar3 { top: 26px; }
-
-/* Active state: morph to X */
-.btn__menu.is-active .bar1 {
-    top: 16px;
-    transform: rotate(45deg);
-}
-
-.btn__menu.is-active .bar2 {
-    opacity: 0;
-    transform: scaleX(0);
-}
-
-.btn__menu.is-active .bar3 {
-    top: 16px;
-    transform: rotate(-45deg);
+.btn__menu svg {
+    display: block;
 }
 
 .menu__backdrop {
