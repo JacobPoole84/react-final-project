@@ -253,14 +253,7 @@ const Search = () => {
               <div
                 key={coin.id}
                 className="coin-info"
-                role="button"
-                tabIndex={0}
                 onClick={() => navigate(`/${coin.id}`)}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter" || event.key === " ") {
-                    navigate(`/${coin.id}`);
-                  }
-                }}
               >
                 <div className="coin-info__container">
                   <h3>{coin.name}</h3>
