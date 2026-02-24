@@ -4,7 +4,7 @@ import DefiLogo from "../assets/defi-decentralized-finance-for-exchange-cryptocu
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { Menu } from "lucide-react";
+import { LoaderCircle, Menu } from "lucide-react";
 import axios from "axios";
 
 const Search = () => {
@@ -202,7 +202,16 @@ const Search = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             <button className="search-wrapper" type="submit" aria-label="Search">
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
+              {loading ? (
+                <LoaderCircle
+                  className="search-loader"
+                  size={32}
+                  strokeWidth={2.5}
+                  aria-hidden="true"
+                />
+              ) : (
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
+              )}
             </button>
           </form>
         </div>

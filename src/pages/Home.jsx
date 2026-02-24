@@ -6,12 +6,13 @@ import DefiLogo from "../assets/defi-decentralized-finance-for-exchange-cryptocu
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { Menu } from "lucide-react";
+import { LoaderCircle, Menu } from "lucide-react";
 
 const Home = () => {
   const [searchDetails, setSearchDetails] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCoinAnimatingIn, setIsCoinAnimatingIn] = useState(false);
+  const [isSubmittingSearch, setIsSubmittingSearch] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,8 +24,10 @@ const Home = () => {
     event.preventDefault();
     const input = searchDetails;
     if (!input || input.trim().length === 0) {
+      setIsSubmittingSearch(false);
       return;
     }
+    setIsSubmittingSearch(true);
     setIsCoinAnimatingIn(false);
     navigate(`/search?search=${encodeURIComponent(input.trim())}`);
   }
@@ -131,7 +134,16 @@ const Home = () => {
               onChange={(e) => setSearchDetails(e.target.value)}
             />
             <button className="btn__search" type="submit">
-              <FontAwesomeIcon id="loading" icon={faMagnifyingGlass} />
+              {isSubmittingSearch ? (
+                <LoaderCircle
+                  className="home-search-loader"
+                  size={40}
+                  strokeWidth={2.5}
+                  aria-hidden="true"
+                />
+              ) : (
+                <FontAwesomeIcon id="loading" icon={faMagnifyingGlass} />
+              )}
             </button>
           </div>
         </form>

@@ -230,6 +230,20 @@ body.menu--open .search-page .fa-bars {
     color: rgb(114, 117, 204);
 }
 
+.search-page .search-loader {
+    animation: search-spin 1s linear infinite;
+}
+
+@keyframes search-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 
 /* background layer that covers header */
 .search-page .background-img {

@@ -282,6 +282,20 @@ input {
     background-color: black;
 }
 
+.home-search-loader {
+    animation: home-search-spin 1s linear infinite;
+}
+
+@keyframes home-search-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .img__wrapper {
     display: flex;
     justify-content: center;
