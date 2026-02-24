@@ -14,6 +14,7 @@ const Search = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState(querySearch);
+  const [submittedSearchTerm, setSubmittedSearchTerm] = useState(querySearch);
   const [sortType, setSortType] = useState("");
   const [matchedCoins, setMatchedCoins] = useState([]);
   const [coins, setCoins] = useState([]);
@@ -89,6 +90,7 @@ const Search = () => {
       return;
     }
 
+    setSubmittedSearchTerm(normalizedTerm);
     await fetchAndSetCoins(normalizedTerm, sortType);
   }
 
@@ -110,6 +112,7 @@ const Search = () => {
     if (querySearch.trim()) {
       const normalizedTerm = querySearch.trim();
       setSearchTerm(normalizedTerm);
+      setSubmittedSearchTerm(normalizedTerm);
 
       fetchAndSetCoins(normalizedTerm, "");
     }
@@ -219,7 +222,11 @@ const Search = () => {
       </header>
       <section className="search">
         <div className="filter__wrapper">
-          <h1 className="search__info">Search Results:</h1>
+          <h1 className="search__info">
+            {submittedSearchTerm
+              ? `Search Results for "${submittedSearchTerm}"`
+              : "Search Results:"}
+          </h1>
           <div className="price__filter">
             <h2>Coin Sort:</h2>
             <select id="filter" value={sortType} onChange={handleSortChange}>
