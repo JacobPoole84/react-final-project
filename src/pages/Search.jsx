@@ -91,6 +91,7 @@ const Search = () => {
     }
 
     setSubmittedSearchTerm(normalizedTerm);
+    navigate(`/search?search=${encodeURIComponent(normalizedTerm)}`);
     await fetchAndSetCoins(normalizedTerm, sortType);
   }
 
