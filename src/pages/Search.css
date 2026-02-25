@@ -190,7 +190,7 @@ body.menu--open .search-page .fa-bars {
     margin-bottom: 40px;
     letter-spacing: 2px;
     text-align: center;
-    font-size: 45px;
+    font-size: clamp(30px, 5vw, 45px);
     max-width: 1000px;
 }
 
@@ -199,6 +199,7 @@ body.menu--open .search-page .fa-bars {
     max-width: 600px;
     position: relative;
     border-radius: 50px;
+    overflow: hidden;
     /* overflow: hidden; */
 }
 
@@ -208,6 +209,7 @@ body.menu--open .search-page .fa-bars {
     height: 60px;
     font-size: 20px;
     padding-left: 20px;
+    padding-right: 62px;
     border-radius: 50px;
 }
 
@@ -217,8 +219,8 @@ body.menu--open .search-page .fa-bars {
     cursor: pointer;
     border: none;
     background: transparent;
-    top: 10px;
-    bottom: 0;
+    top: 50%;
+    transform: translateY(-50%);
     right: 0;
     /* z-index: 10000; */
     padding: 0 20px 0 8px;
@@ -333,12 +335,17 @@ body.menu--open .search-page .fa-bars {
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .search-page .search__info {
     font-size: 28px;
     padding: 20px 0;
     margin: 0;
+    flex: 1 1 480px;
+    overflow-wrap: anywhere;
 }
 
 .search-page .purple {
@@ -350,6 +357,7 @@ body.menu--open .search-page .fa-bars {
     flex-direction: column;
     width: 30%;
     min-width: 335px;
+    margin-left: auto;
 }
 
 .search-page #filter {
@@ -358,7 +366,8 @@ body.menu--open .search-page .fa-bars {
     font-size: 16px;
     text-align: center;
     border-radius: 8px;
-    width: 50%;
+    width: 100%;
+    max-width: 220px;
     align-self: center;
 }
 
@@ -373,14 +382,16 @@ body.menu--open .search-page .fa-bars {
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
-    gap: 10px;
+    gap: 14px;
 }
 
 .search-page .coin-info {
     margin: 0;
-    width: 25%;
+    width: calc(25% - 11px);
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    gap: 10px;
     border: 2px solid #d7d9ef;
     border-radius: 16px;
     padding: 12px;
@@ -405,14 +416,37 @@ body.menu--open .search-page .fa-bars {
 
 .search-page .coin-info img {
     margin: 8px;
-    width: 50%;
-    height: 50%;
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
 }
 
 
 /* Smaller Sizes */
 
+@media (max-width: 1100px) {
+    .search-page .search-navbar {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    .search-page .coin-info {
+        width: calc(33.333% - 10px);
+    }
+
+    .search-page .price__filter {
+        width: 100%;
+        max-width: 360px;
+    }
+}
+
 @media (max-width: 750px) {
+    .search-page .search-navbar {
+        padding-left: 16px;
+        padding-right: 16px;
+        min-height: 360px;
+    }
+
     .search-page .btn__menu {
         display: block;
     }
@@ -421,7 +455,72 @@ body.menu--open .search-page .fa-bars {
         display: none;
     }
 
+    .search-page .content__wrapper {
+        margin-top: 28px;
+    }
+
+    .search-page input {
+        height: 52px;
+        font-size: 16px;
+    }
+
+    .search-page .search-wrapper {
+        font-size: 24px;
+        padding-right: 14px;
+    }
+
+    .search-page .search {
+        padding: 28px 14px;
+    }
+
+    .search-page .filter__wrapper {
+        padding: 0;
+        align-items: stretch;
+    }
+
+    .search-page .search__info {
+        font-size: 22px;
+        flex-basis: 100%;
+        padding-top: 0;
+    }
+
+    .search-page .price__filter {
+        min-width: 0;
+        max-width: none;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .search-page #filter {
+        max-width: none;
+    }
+
     .search-page .coin-info {
-        width: 45%;
+        width: calc(50% - 7px);
+    }
+}
+
+@media (max-width: 480px) {
+    .search-page .menu__link {
+        font-size: 30px;
+    }
+
+    .search-page .search__info {
+        font-size: 19px;
+    }
+
+    .search-page .coin__container {
+        gap: 10px;
+    }
+
+    .search-page .coin-info {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .search-page .coin-info img {
+        width: 60px;
+        height: 60px;
+        margin: 4px;
     }
 }

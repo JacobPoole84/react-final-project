@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Coin from './pages/Coin';
 import Search from './pages/Search';
+import Footer from './pages/Footer';
+
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
       <Route path='/search' element={<Search />} />
       <Route path='/:id' element={<Coin />} />
     </Routes>
+    <Footer />
     </div>
     </Router>
   );

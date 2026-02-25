@@ -265,7 +265,7 @@ const Search = () => {
                     <b>Rank:</b> {coin.market_cap_rank}
                   </p>
                   <p>
-                    <b>Price:</b> ${coin.current_price}
+                    <b>Price:</b> {coin.current_price.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
                   </p>
                 </div>
                 <img src={coin.image} alt={coin.name} />

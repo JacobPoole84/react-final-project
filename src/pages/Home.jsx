@@ -37,7 +37,7 @@ const Home = () => {
     : "slide-out-rotate";
 
   return (
-    <>
+    <div className="home">
       <header className="home-navbar">
         <div className="nav__row">
           <div className="logo">
@@ -155,7 +155,7 @@ const Home = () => {
           </div>
         </figure>
       </section>
-    </>
+    </div>
   );
 };
 

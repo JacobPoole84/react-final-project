@@ -13,6 +13,10 @@ a {
     position: relative;
 }
 
+.home {
+    min-height: 100vh;
+}
+
 /* NAVBAR */
 
 .home-navbar {
